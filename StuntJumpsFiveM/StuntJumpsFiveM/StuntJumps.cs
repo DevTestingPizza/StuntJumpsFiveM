@@ -102,6 +102,23 @@ namespace StuntJumpsFiveM
             }
 
             StatSetBool((uint)GetHashKey("MP1_DEFAULT_STATS_SET"), true, true);
+
+            EventHandlers.Add("onResourceStop", new Action<string>((resname) =>
+            {
+                if (resname == GetCurrentResourceName())
+                {
+                    // reset the stat if the resource is being stopped because the player disconnected from the server
+                    // otherwise do nothing because the stunt jumps probably still exist.
+                    // This is a very hacky method, and does cause for some problems, but none that are too critical.
+                    // Just some 'visual' issues to do with keeping track of completed jumps. 
+                    // (things like 99 remaining stunt jumps etc will appear in banner message when using a jump after re-joining a server without game reboot)
+                    if (!NetworkIsSessionActive())
+                    {
+                        StatSetBool((uint)GetHashKey("MP1_DEFAULT_STATS_SET"), false, true);
+                        Debug.WriteLine($"[{GetCurrentResourceName()}] Resetting stunt jumps stat to allow them to be recreated on the next server join.");
+                    }
+                }
+            }));
         }
     }
 }
