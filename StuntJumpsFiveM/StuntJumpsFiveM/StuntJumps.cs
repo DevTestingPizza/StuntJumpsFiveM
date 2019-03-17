@@ -44,6 +44,7 @@ namespace StuntJumpsFiveM
                                 (float)jump["camPos"]["Y"],
                                 (float)jump["camPos"]["Z"],
                                 150,
+                                0,
                                 0
                             );
                         }
@@ -84,6 +85,7 @@ namespace StuntJumpsFiveM
                                 (float)jump["camPos"]["Y"],
                                 (float)jump["camPos"]["Z"],
                                 150,
+                                0,
                                 0
                             );
                         }

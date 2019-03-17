@@ -18,3 +18,10 @@ https://streamable.com/dhyc3
 
 ## Dev notes
 You should not try to add lots more, the game can only handle up to 64 stunt jumps before shitting itself. This resource adds 50 stunt jumps and sets the `MP1_DEFAULT_STATS_SET` stat to `true` whenever it has added them. This is used to make sure they are not added again in the same game session in case the resource is rebooted for whatever reason. So please don't touch that stat value cause you'll most likely end up breaking people's games. If you want to add your own stunt jumps, just create a fork of this project and edit the `stuntjumps.json` file embedded in the source files.
+
+## Changelog
+### v1.0.0
+Initial release.
+
+### v1.0.1
+Small fix for latest FiveM build.
